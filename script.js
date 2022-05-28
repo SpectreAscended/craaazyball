@@ -37,6 +37,7 @@ let counter = 0;
 const crazyBall = function() {
 
     targetBall.style.outline = 'none';
+    targetBall.classList.remove('spin');
     const level = setInterval(() => {
         counter++;
         balls.forEach(ball => {

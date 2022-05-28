@@ -60,11 +60,24 @@ body {
 }
 
 .target {
-    
-    outline: 3px dashed gold;
+
 }
 
+.spin {
+    outline: 3px dashed gold;
+    /* border: 4px dashed red; */
+    transition: all 200ms;
+    animation: rotate 3000ms infinite linear;
+}
 
+@keyframes rotate{
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}
 
 .start-game {
     text-align: center;
