@@ -16,26 +16,7 @@ const ranNum = function(n) {
 
 let counter = 0;
 
-// const init = function() {
-//     const markup = `
-//     <div class="game-box__group--1">
-//         <div class="ball ball--1 loser"></div>
-//         <div class="ball ball--2 loser"></div>
-//         <div class="ball ball--3 target"></div>
-//         <div class="ball ball--4 loser"></div>
-
-//         <div class="ball ball--1 loser"></div>
-//         <div class="ball ball--2 loser"></div>
-//         <div class="ball ball--3 loser"></div>
-//         <div class="ball ball--4 loser"></div>
-//     </div>
-// `
-// gameBox.insertAdjacentHTML("afterbegin", markup);
-// }
-// init();
-
 const crazyBall = function() {
-
     targetBall.style.outline = 'none';
     targetBall.classList.remove('spin');
     const level = setInterval(() => {
