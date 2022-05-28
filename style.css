@@ -59,13 +59,9 @@ body {
     background-color: #E90101;
 }
 
-.target {
-
-}
 
 .spin {
     outline: 3px dashed gold;
-    /* border: 4px dashed red; */
     transition: all 200ms;
     animation: rotate 3000ms infinite linear;
 }
