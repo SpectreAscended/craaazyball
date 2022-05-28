@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C-ball prototype</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <main class="main">
+        <div class="border">
+            <div class="logo__box">
+                <div class="logo__box--img">
+                    <img src="assets/Logo.svg" alt="Crazyball logo" class="logo">
+                </div>
+                <div class="logo__box--title">
+                    <h1 class="title">Craaazy Ball</h1>
+                </div>
+            </div>
+            <div class="start-game">
+                <span class="start-game__button">Start</span>
+            </div>
+            <div class="game-box">
+                <div class="game-box__group--1">
+                    <div class="ball ball--1 loser"></div>
+                    <div class="ball ball--2 loser"></div>
+                    <div class="ball ball--3 target"></div>
+                    <div class="ball ball--4 loser"></div>
+
+                    <div class="ball ball--1 loser"></div>
+                    <div class="ball ball--2 loser"></div>
+                    <div class="ball ball--3 loser"></div>
+                    <div class="ball ball--4 loser"></div>
+                </div>
+            </div>
+        </div>
+        <div class="winning-page hidden">
+            <h2 class="winning-page__message">Winner!</h2>
+        </div>
+        <div class="losing-page  hidden">
+            <h2 class="losing-page__message">Loser!</h2>
+        </div>
+    </main>
+</body>
+</html>
