@@ -10,7 +10,7 @@ const losingPage = document.querySelector('.losing-page');
 const lvlText = document.querySelector('.logo-box__level--level');
 const highscoreText = document.querySelector('.logo-Box__level--highscore');
 
-let counter = 0;
+
 let lvl = 1;
 let highscore = 0;
 
@@ -20,6 +20,8 @@ const ranNum = function(n) {
 
 const crazyBall = function() {
     let clicked = false;
+    let counter = 0;
+
     targetBall.classList.remove('spin');
     targetBall.classList.remove('marked');
     const level = setInterval(() => {
@@ -55,6 +57,7 @@ const crazyBall = function() {
 
             if(e.target.closest('.loser')){
                 losingPage.classList.remove('hidden');
+                targetBall.classList.add('marked');
                 counter = 0;
                 lvl = 1;
                 renderLevel();
@@ -64,7 +67,6 @@ const crazyBall = function() {
             };
         });
     });
-
 };
 
 const renderLevel = function() {
