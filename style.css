@@ -8,10 +8,12 @@
 
 :root {
     --color-primary: #BA6F2A;
+    --color-secondary: #333;
+    --color-tertiary: #ffd700;
 }
 
 body {
-    background-color: #333;
+    background-color: var(--color-secondary);
     font-family: 'Audiowide', sans-serif;
     color: #efefef;
 }
@@ -65,11 +67,11 @@ body {
 }
 
 .marked {
-    box-shadow: 0rem 0 3rem gold;
+    box-shadow: 0rem 0 3rem var(--color-tertiary);
 }
 
 .spin {
-    outline: 3px dashed gold;
+    outline: 3px dashed var(--color-tertiary);
     transition: all 200ms;
     animation: rotate 3000ms infinite linear;
 }
@@ -87,10 +89,11 @@ body {
     text-align: center;
     margin-top: -2rem;
     margin-bottom: 2rem;
+    color: #333;
 }
 
 .start-game__button {
-    background-color: gold;
+    background-color: var(--color-tertiary);
     padding: .5rem 1rem;
     border-radius: 5px;
     text-transform: uppercase;
@@ -99,7 +102,7 @@ body {
 }
 
 .start-game__button:hover {
-    background-color: #EDCB54;
+    background-color: #e0c005;
 }
 
 
@@ -180,4 +183,23 @@ body {
     text-transform: uppercase;
 }
 
+.footer {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    background-color: var(--color-primary);
+}
 
+.footer a:link,
+.footer a:visited {
+    margin-left: 2rem;
+    text-decoration: none;
+    color: inherit;
+    transition: color 250ms;
+}
+
+.footer a:hover,
+.footer a:active {
+    color: #ddd
+}
