@@ -36,7 +36,7 @@ const crazyBall = function () {
     if (counter === 10) {
       clearInterval(level);
     }
-  }, 400);
+  }, 325);
 
   balls.forEach(ball => {
     ball.addEventListener('click', function (e) {
