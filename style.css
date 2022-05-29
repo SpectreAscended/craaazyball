@@ -44,6 +44,8 @@ body {
     margin-left: 3rem;
 }
 
+/*  Game */
+
 .ball {
     height: 2.5rem;
     width: 2.5rem;
@@ -70,6 +72,7 @@ body {
     box-shadow: 0rem 0 3rem var(--color-tertiary);
 }
 
+
 .spin {
     outline: 3px dashed var(--color-tertiary);
     transition: all 200ms;
@@ -86,10 +89,11 @@ body {
 }
 
 .start-game {
-    text-align: center;
-    margin-top: -2rem;
-    margin-bottom: 2rem;
+    display: flex;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
     color: #333;
+    justify-content: center;
 }
 
 .start-game__button {
@@ -119,26 +123,14 @@ body {
 
 .winning-page {
     background-color: green;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 250ms;
-    z-index: 1000;
-
 }
 
-.winning-page__message {
-    font-size: 5rem;
-    text-transform: uppercase;
-}
 
 .losing-page {
     background-color: darkred;
+}
+
+.results {
     position: absolute;
     top: 0;
     left: 0;
@@ -151,7 +143,7 @@ body {
     z-index: 1000;
 }
 
-.losing-page__message {
+.results__message {
     font-size: 5rem;
     text-transform: uppercase;
 }
@@ -185,6 +177,8 @@ body {
     text-transform: uppercase;
 }
 
+/* Footer */
+
 .footer {
     font-family: sans-serif;
     display: flex;
@@ -205,3 +199,4 @@ body {
 .footer a:active {
     color: #ddd
 }
+

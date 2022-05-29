@@ -18,6 +18,9 @@ const ranNum = function (n) {
 };
 
 const crazyBall = function () {
+  const clientHeight = Math.trunc(window.visualViewport.height) - 800;
+  const clientWidth = Math.trunc(window.visualViewport.width) - 365;
+  console.log(`Height: ${clientHeight}, Width: ${clientWidth}`);
   let clicked = false;
   let counter = 0;
 
@@ -26,7 +29,7 @@ const crazyBall = function () {
   const level = setInterval(() => {
     counter++;
     balls.forEach(ball => {
-      ball.style.transform = `translate(${ranNum(1500)}px, ${ranNum(300)}px)`;
+      ball.style.transform = `translate(${ranNum(clientWidth > 235 ? clientWidth : 300)}px, ${ranNum(clientHeight > 50 ? clientHeight : 150)}px)`;
       ball.style.backgroundColor = `rgba(240, ${ranNum(255)}, ${ranNum(255)})`;
     });
 
@@ -37,15 +40,14 @@ const crazyBall = function () {
 
   balls.forEach(ball => {
     ball.addEventListener('click', function (e) {
-      if (clicked === true) return;
+      if (clicked) return;
       clicked = true;
       if (e.target.closest('.target')) {
         winningPage.classList.remove('hidden');
-        targetBall.classList.add('marked');
         counter = 0;
         lvl++;
-        highscore = lvl - 1;
 
+        addHalo();
         renderLevel();
         renderHighscore();
         renderNextLevelMessage();
@@ -59,6 +61,7 @@ const crazyBall = function () {
         targetBall.classList.add('marked');
         counter = 0;
         lvl = 1;
+        addHalo();
         renderLevel();
         setTimeout(() => {
           losingPage.classList.add('hidden');
@@ -74,6 +77,7 @@ const renderLevel = function () {
 
 const renderHighscore = function () {
   if (lvl > highscore && lvl > 1) {
+    highscore = lvl - 1;
     highscoreText.textContent = `Highscore: ${highscore}`;
   }
 };
@@ -86,6 +90,12 @@ const renderNextLevelMessage = function () {
   );
 };
 
+const addHalo = function() {
+  targetBall.classList.add('marked');
+  targetBall.style.backgroundColor = '#ffd700';
+};
+
 begin.addEventListener('click', function () {
   crazyBall();
 });
+

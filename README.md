@@ -1,4 +1,4 @@
-# Craaazyball
+# Craaazy ball
 
 Prototype for Craaazyball. Version 1
 

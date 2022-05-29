@@ -1,0 +1,55 @@
+
+
+@media (max-width: 1400px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .ball {
+        height: 2rem;
+        width: 2rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .ball {
+        height: 1.8rem;
+        width: 1.8rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .ball {
+        height: 1.3rem;
+        width: 1.3rem;
+    }
+
+
+    .border {
+        padding: 2rem .5rem;
+        width: 100%;
+        height: 100%
+    }
+
+    .game-box {
+        height: 90vh;
+    }
+
+    .game-box__group--1 {
+        margin: .5rem;
+    }
+
+    .title {
+        font-size: 1.6rem;
+        display: none;
+    }
+
+    .logo-box__level {
+        font-size: 1.2rem;
+        display: none;
+    }
+
+    .results__message {
+        font-size: 2rem;
+    }
+}
