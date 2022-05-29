@@ -44,6 +44,7 @@ const crazyBall = function () {
         targetBall.classList.add('marked');
         counter = 0;
         lvl++;
+        highscore = lvl - 1;
 
         renderLevel();
         renderHighscore();
@@ -73,7 +74,6 @@ const renderLevel = function () {
 
 const renderHighscore = function () {
   if (lvl > highscore && lvl > 1) {
-    highscore = lvl - 1;
     highscoreText.textContent = `Highscore: ${highscore}`;
   }
 };
