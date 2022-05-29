@@ -144,12 +144,12 @@ body {
 }
 
 /* Logo */
-.logo__box {
+.logo-box {
     display: flex;
     align-items: center;
 }
 
-.logo__box--img {
+.logo-box__img {
     width: 10%;
     margin-left: 3rem;
 }
@@ -158,9 +158,18 @@ body {
     width: 100%;
 }
 
-.logo__box--title {
+.logo-box__title {
     font-size: 2rem;
     text-transform: uppercase;
     margin-left: 2rem;
 }
+
+.logo-box__level {
+    justify-self: flex-end;
+    margin-left: auto;
+    margin-right: 5rem;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+}
+
 
