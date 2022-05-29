@@ -86,7 +86,7 @@ const renderNextLevelMessage = function () {
   winningPage.innerHTML = '';
   winningPage.insertAdjacentHTML(
     'beforeend',
-    `<h2 class="winning-page__message">Level ${lvl}</h2>`
+    `<h2 class="winning-page__message results__message">Level ${lvl}</h2>`
   );
 };
 
