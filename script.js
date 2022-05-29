@@ -10,17 +10,16 @@ const losingPage = document.querySelector('.losing-page');
 const lvlText = document.querySelector('.logo-box__level--level');
 const highscoreText = document.querySelector('.logo-Box__level--highscore');
 
-
+let counter = 0;
+let lvl = 1;
+let highscore = 0;
 
 const ranNum = function(n) {
     return Math.trunc(Math.random() * n);
 }
 
-let counter = 0;
-let lvl = 1;
-let highscore = 0;
-
 const crazyBall = function() {
+    let clicked = false;
     // targetBall.style.outline = 'none';
     targetBall.classList.remove('spin');
     const level = setInterval(() => {
@@ -35,34 +34,49 @@ const crazyBall = function() {
         }
     }, 400);
 
+
     balls.forEach(ball => {
-        addEventListener('click', function(e) {
+
+        ball.addEventListener('click', function(e) {
+            if(clicked === true) return;
+            clicked = true;
             if(e.target.closest('.target')) {
                 winningPage.classList.remove('hidden');
                 counter = 0;
-                // lvl++
-                // lvlText.textContent = `Level: ${lvl}`;
-                // if(lvl > highscore && lvl > 1) {
-                //     highscore = lvl - 1;
-                //     highscoreText.textContent = `Highscore: ${highscore}`;
-                // }
-                this.setTimeout(() => {
-                    winningPage.classList.add('hidden')
+                lvl++
+                renderLevel();
+                renderHighscore();
+                console.log(lvl);
+                setTimeout(() => {
+                    winningPage.classList.add('hidden');
                 }, 2000);
             }
+
             if(e.target.closest('.loser')){
                 losingPage.classList.remove('hidden');
                 counter = 0;
-                this.setTimeout(() => {
+                lvl = 1;
+                renderLevel();
+                setTimeout(() => {
                     losingPage.classList.add('hidden');
                 }, 2000) 
             };
         });
     });
 
+};
 
-}
-// crazyBall();
+const renderLevel = function() {
+    lvlText.textContent = `Level: ${lvl}`
+};
+
+const renderHighscore = function() {
+    if(lvl > highscore && lvl > 1) {
+        highscore = lvl - 1;
+        highscoreText.textContent = `Highscore: ${highscore}`
+    };
+};
+
 
 begin.addEventListener('click', function() {
     crazyBall();
