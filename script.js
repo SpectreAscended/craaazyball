@@ -20,8 +20,8 @@ const ranNum = function(n) {
 
 const crazyBall = function() {
     let clicked = false;
-    // targetBall.style.outline = 'none';
     targetBall.classList.remove('spin');
+    targetBall.classList.remove('marked');
     const level = setInterval(() => {
         counter++;
         balls.forEach(ball => {
@@ -42,6 +42,7 @@ const crazyBall = function() {
             clicked = true;
             if(e.target.closest('.target')) {
                 winningPage.classList.remove('hidden');
+                targetBall.classList.add('marked');
                 counter = 0;
                 lvl++
                 renderLevel();

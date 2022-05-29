@@ -59,6 +59,9 @@ body {
     background-color: #E90101;
 }
 
+.marked {
+    box-shadow: 0rem 0 2.4rem gold;
+}
 
 .spin {
     outline: 3px dashed gold;
