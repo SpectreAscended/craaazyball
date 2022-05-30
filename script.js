@@ -49,7 +49,7 @@ const crazyBall = function () {
   const gameLevel = setInterval(() => {
     counter--;
     balls.forEach(ball => {
-      ball.style.transform = `translate(${ranNum(clientWidth > 235 ? clientWidth : 300)}px, ${ranNum(clientHeight > 50 ? clientHeight + 300 : 250)}px)`;
+      ball.style.transform = `translate(${ranNum(clientWidth > 235 ? clientWidth: 260)}px, ${ranNum(clientHeight > 50 ? clientHeight + 250 : 250)}px)`;
       ball.style.backgroundColor = `rgba(240, ${ranNum(255)}, ${ranNum(255)})`;
     });
 
@@ -89,6 +89,9 @@ const crazyBall = function () {
         targetBall.classList.add('marked');
         counter = initialCounter;
         lvl = 1;
+        losingPage.addEventListener('click', function() {
+          losingPage.classList.add('hidden');
+        })
         addHalo();
         renderLevel();
         setTimeout(() => {
