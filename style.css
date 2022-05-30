@@ -13,7 +13,7 @@
 }
 
 body {
-    background-color: var(--color-secondary);
+    background-color: var(--color-primary);
     font-family: 'Audiowide', sans-serif;
     color: #efefef;
 }
@@ -29,7 +29,7 @@ body {
 }
 
 .game-box {
-    background-color: #333;
+    background-color: var(--color-secondary);
     height: 80vh;
     width: 95%;
     margin: 0 auto;
@@ -198,7 +198,6 @@ body {
     display: flex;
     justify-content: center;
     padding: 1rem;
-    background-color: var(--color-primary);
 }
 
 .footer a:link,

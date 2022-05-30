@@ -54,7 +54,7 @@
     }
 
     .logo-box {
-        justify-content: space space-evenly;
+        justify-content: space-evenly;
     }
 
     .logo-box__img {
