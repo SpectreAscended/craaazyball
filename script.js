@@ -44,7 +44,7 @@ const crazyBall = function () {
       clearInterval(gameLevel);
     }
   },  initialDifficulty - difficulty);
-
+  console.log('Difficulty setting:' + initialDifficulty - difficulty);
   balls.forEach(ball => {
     ball.addEventListener('click', function (e) {
       if (clicked) return;
