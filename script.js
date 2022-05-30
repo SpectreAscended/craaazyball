@@ -36,7 +36,7 @@ const crazyBall = function () {
   const gameLevel = setInterval(() => {
     counter++;
     balls.forEach(ball => {
-      ball.style.transform = `translate(${ranNum(clientWidth > 235 ? clientWidth : 300)}px, ${ranNum(clientHeight > 50 ? clientHeight : 250)}px)`;
+      ball.style.transform = `translate(${ranNum(clientWidth > 235 ? clientWidth : 300)}px, ${ranNum(clientHeight > 50 ? clientHeight + 300 : 250)}px)`;
       ball.style.backgroundColor = `rgba(240, ${ranNum(255)}, ${ranNum(255)})`;
     });
 
@@ -44,7 +44,7 @@ const crazyBall = function () {
       clearInterval(gameLevel);
     }
   },  initialDifficulty - difficulty);
-  console.log('Difficulty setting:' + initialDifficulty - difficulty);
+  console.log(`Difficulty setting:  ${initialDifficulty - difficulty}`);
   balls.forEach(ball => {
     ball.addEventListener('click', function (e) {
       if (clicked) return;
