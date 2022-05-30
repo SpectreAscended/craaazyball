@@ -128,19 +128,14 @@ body {
     position: relative;
 }
 
-.hidden {
-    opacity: 0;
-    visibility: hidden;
-    display: none;
-}
 
-.winning-page {
-    background-color: green;
+.winning-page__box {
+    border: .5rem solid var(--color-primary);
 }
 
 
-.losing-page {
-    background-color: darkred;
+.losing-page__box {
+    border: .5rem solid darkred;
 }
 
 .results {
@@ -151,15 +146,31 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
     transition: all 250ms;
     z-index: 1000;
+    background-color: rgba(0, 0, 0, .6);
+}
+
+.results__box{
+    background-color: #333;
+    padding: 8rem 16rem;
+    display: block;
+    border-radius: 3rem;
+    transform: scale(.25);
+    transition: transform 400ms;
 }
 
 .results__message {
     font-size: 5rem;
     text-transform: uppercase;
-    margin-top: 40vh;
-    /* transform: translateY(-50%); */
+
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+    /* display: none; */
 }
 
 /* Logo */

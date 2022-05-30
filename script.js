@@ -6,7 +6,10 @@ const gameBox = document.querySelector('.game-box');
 const loser = document.querySelectorAll('.loser');
 const begin = document.querySelector('.start-game__button');
 const winningPage = document.querySelector('.winning-page');
+const winningPageMsg = document.querySelector('.winning-page__message');
+const winningPageBox = document.querySelector('.winning-page__box');
 const losingPage = document.querySelector('.losing-page');
+const losingPageBox = document.querySelector('.losing-page__box');
 const lvlText = document.querySelector('.logo-box__level--level');
 const highscoreText = document.querySelector('.logo-Box__level--highscore');
 
@@ -68,6 +71,7 @@ const crazyBall = function () {
       begin.classList.remove('initialized');
       if (e.target.closest('.target')) {
         winningPage.classList.remove('hidden');
+        winningPageBox.style.transform = 'scale(1)';
         counter = initialCounter;
         lvl++;
 
@@ -77,11 +81,13 @@ const crazyBall = function () {
         renderNextLevelMessage();
         setTimeout(() => {
           winningPage.classList.add('hidden');
+          winningPageBox.style.transform = 'scale(.25)';
         }, 2000);
       }
 
       if (e.target.closest('.lose')) {
         losingPage.classList.remove('hidden');
+        losingPageBox.style.transform = 'scale(1)';
         targetBall.classList.add('marked');
         counter = initialCounter;
         lvl = 1;
@@ -89,7 +95,8 @@ const crazyBall = function () {
         renderLevel();
         setTimeout(() => {
           losingPage.classList.add('hidden');
-        }, 2000);
+          losingPageBox.style.transform = 'scale(.25)';
+        }, 3000);
       }
     });
   });
@@ -107,11 +114,7 @@ const renderHighscore = function () {
 };
 
 const renderNextLevelMessage = function () {
-  winningPage.innerHTML = '';
-  winningPage.insertAdjacentHTML(
-    'beforeend',
-    `<h2 class="winning-page__message results__message">Level ${lvl}</h2>`
-  );
+  winningPageMsg.textContent = `Level ${lvl}`;
 };
 
 const addHalo = function() {
