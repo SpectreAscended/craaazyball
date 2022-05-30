@@ -35,13 +35,13 @@ const crazyBall = function () {
   let counter = initialCounter;
   if(lvl > 10) {
     counter = lvl;
-  }
+  };
   if(lvl > 20) {
     counter = lvl + 5;
-  }
+  };
   if(lvl > 30) {
     counter = lvl + 10;
-  }
+  };
 
   targetBall.classList.remove('spin');
   targetBall.classList.remove('marked');

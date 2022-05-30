@@ -170,7 +170,6 @@ body {
 .hidden {
     opacity: 0;
     visibility: hidden;
-    /* display: none; */
 }
 
 /* Logo */
