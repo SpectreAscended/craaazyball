@@ -57,6 +57,7 @@ const crazyBall = function () {
   },  initialDifficulty - difficulty);
   console.log(`Difficulty setting:  ${initialDifficulty - difficulty}`);
   balls.forEach(ball => {
+    ball.style.transition = `all ${initialDifficulty - difficulty}ms ease-in-out`;
     ball.addEventListener('click', function (e) {
       if (clicked) return;
       clicked = true;
