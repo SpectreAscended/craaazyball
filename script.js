@@ -28,8 +28,6 @@ const ranNum = function (n) {
 const crazyBall = function () {
   difficulty  =+ lvl * 15;
   let curDifficulty = initialDifficulty - difficulty;
-  console.log(lvl);
-  console.log(difficulty);
   const clientHeight = Math.trunc(window.visualViewport.height) - 810;
   const clientWidth = Math.trunc(window.visualViewport.width) - 360;
   console.log(`Height: ${clientHeight}, Width: ${clientWidth}`);
