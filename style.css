@@ -116,8 +116,11 @@ body {
     background-color: #e0c005;
 }
 
+
 .initialized {
     opacity: .6;
+    background-color: #e0c005;
+    cursor: no-drop;
 }
 
 /* Win/Lose message */
