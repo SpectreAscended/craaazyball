@@ -41,6 +41,7 @@
 
     .game-box__group--1 {
         margin: .5rem;
+        gap: 2rem;
     }
 
     .logo-box__title {
@@ -96,5 +97,33 @@
 
     .footer a{
         margin-left: 0;
+    }
+}
+
+/* Mobile landscape */
+
+@media (max-height: 37.5em) {
+
+    html {
+        font-size: 55%;
+    }
+
+    .ball {
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+
+    .game-box {
+        padding: 0;
+    }
+
+    .game-box__group--1 {
+        gap: 1.5rem;
+        margin-top: 2rem;
+        margin-left: 2rem;
+    }
+
+    .border {
+        padding: 1rem 1.5rem
     }
 }
