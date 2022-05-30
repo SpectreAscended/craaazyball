@@ -12,12 +12,18 @@ const highscoreText = document.querySelector('.logo-Box__level--highscore');
 
 let lvl = 1;
 let highscore = 0;
+let difficulty = 500;
+let initialDifficulty = 500;
+
 
 const ranNum = function (n) {
   return Math.trunc(Math.random() * n);
 };
 
 const crazyBall = function () {
+  difficulty  =+ lvl * 15;
+  console.log(lvl);
+  console.log(difficulty);
   const clientHeight = Math.trunc(window.visualViewport.height) - 800;
   const clientWidth = Math.trunc(window.visualViewport.width) - 365;
   console.log(`Height: ${clientHeight}, Width: ${clientWidth}`);
@@ -26,7 +32,8 @@ const crazyBall = function () {
 
   targetBall.classList.remove('spin');
   targetBall.classList.remove('marked');
-  const level = setInterval(() => {
+  
+  const gameLevel = setInterval(() => {
     counter++;
     balls.forEach(ball => {
       ball.style.transform = `translate(${ranNum(clientWidth > 235 ? clientWidth : 300)}px, ${ranNum(clientHeight > 50 ? clientHeight : 250)}px)`;
@@ -34,9 +41,10 @@ const crazyBall = function () {
     });
 
     if (counter === 10) {
-      clearInterval(level);
+      clearInterval(gameLevel);
     }
-  }, 400);
+  }, initialDifficulty - difficulty);
+  console.log(initialDifficulty - difficulty);
 
   balls.forEach(ball => {
     ball.addEventListener('click', function (e) {
