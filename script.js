@@ -127,3 +127,5 @@ begin.addEventListener('click', function () {
   crazyBall();
 });
 
+const date = new Date()
+document.querySelector('.year').textContent = date.getFullYear();
