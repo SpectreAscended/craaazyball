@@ -24,10 +24,11 @@ const ranNum = function (n) {
 
 const crazyBall = function () {
   difficulty  =+ lvl * 15;
+  let curDifficulty = initialDifficulty - difficulty;
   console.log(lvl);
   console.log(difficulty);
-  const clientHeight = Math.trunc(window.visualViewport.height) - 800;
-  const clientWidth = Math.trunc(window.visualViewport.width) - 365;
+  const clientHeight = Math.trunc(window.visualViewport.height) - 810;
+  const clientWidth = Math.trunc(window.visualViewport.width) - 360;
   console.log(`Height: ${clientHeight}, Width: ${clientWidth}`);
   let clicked = false;
   let counter = initialCounter;
@@ -54,10 +55,12 @@ const crazyBall = function () {
     if (counter === 0) {
       clearInterval(gameLevel);
     }
-  },  initialDifficulty - difficulty);
-  console.log(`Difficulty setting:  ${initialDifficulty - difficulty}`);
+  }, curDifficulty);
+  
   balls.forEach(ball => {
-    ball.style.transition = `all ${initialDifficulty - difficulty}ms ease-in-out`;
+
+    ball.style.transition = `all ${curDifficulty}ms ease-in-out`;
+
     ball.addEventListener('click', function (e) {
       if (clicked) return;
       clicked = true;

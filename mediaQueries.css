@@ -25,6 +25,9 @@
         width: 1.3rem;
     }
 
+    .spin {
+        border: 1px dashed #333;
+    }
 
     .border {
         padding: 2rem .5rem;
