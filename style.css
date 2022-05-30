@@ -19,11 +19,13 @@ body {
 }
 
 .border {
+    position: relative;
     padding: 3rem 4rem;
     height: 100vh;
     width: 100%;
     /* background-color: #BA6F2A; */
     background-color: var(--color-primary);
+    z-index: 2;
 }
 
 .game-box {
@@ -68,6 +70,11 @@ body {
     background-color: #E90101;
 }
 
+.target {
+    position: relative;
+    z-index: 1;
+}
+
 .marked {
     box-shadow: 0rem 0 3rem var(--color-tertiary);
 }
@@ -109,6 +116,9 @@ body {
     background-color: #e0c005;
 }
 
+.initialized {
+    opacity: .6;
+}
 
 /* Win/Lose message */
 .main {
@@ -137,7 +147,6 @@ body {
     height: 100%;
     width: 100%;
     display: flex;
-    align-items: center;
     justify-content: center;
     transition: all 250ms;
     z-index: 1000;
@@ -146,6 +155,8 @@ body {
 .results__message {
     font-size: 5rem;
     text-transform: uppercase;
+    margin-top: 40vh;
+    /* transform: translateY(-50%); */
 }
 
 /* Logo */

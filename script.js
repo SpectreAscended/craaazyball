@@ -14,6 +14,8 @@ let lvl = 1;
 let highscore = 0;
 let difficulty = 500;
 let initialDifficulty = 500;
+let initialCounter = 10;
+let initialized = false;
 
 
 const ranNum = function (n) {
@@ -28,19 +30,28 @@ const crazyBall = function () {
   const clientWidth = Math.trunc(window.visualViewport.width) - 365;
   console.log(`Height: ${clientHeight}, Width: ${clientWidth}`);
   let clicked = false;
-  let counter = 0;
+  let counter = initialCounter;
+  if(lvl > 10) {
+    counter = lvl;
+  }
+  if(lvl > 20) {
+    counter = lvl + 5;
+  }
+  if(lvl > 30) {
+    counter = lvl + 10;
+  }
 
   targetBall.classList.remove('spin');
   targetBall.classList.remove('marked');
   
   const gameLevel = setInterval(() => {
-    counter++;
+    counter--;
     balls.forEach(ball => {
       ball.style.transform = `translate(${ranNum(clientWidth > 235 ? clientWidth : 300)}px, ${ranNum(clientHeight > 50 ? clientHeight + 300 : 250)}px)`;
       ball.style.backgroundColor = `rgba(240, ${ranNum(255)}, ${ranNum(255)})`;
     });
 
-    if (counter === 10) {
+    if (counter === 0) {
       clearInterval(gameLevel);
     }
   },  initialDifficulty - difficulty);
@@ -49,9 +60,11 @@ const crazyBall = function () {
     ball.addEventListener('click', function (e) {
       if (clicked) return;
       clicked = true;
+      initialized = false;
+      begin.classList.remove('initialized');
       if (e.target.closest('.target')) {
         winningPage.classList.remove('hidden');
-        counter = 0;
+        counter = initialCounter;
         lvl++;
 
         addHalo();
@@ -66,7 +79,7 @@ const crazyBall = function () {
       if (e.target.closest('.lose')) {
         losingPage.classList.remove('hidden');
         targetBall.classList.add('marked');
-        counter = 0;
+        counter = initialCounter;
         lvl = 1;
         addHalo();
         renderLevel();
@@ -103,6 +116,9 @@ const addHalo = function() {
 };
 
 begin.addEventListener('click', function () {
+  if(initialized) return;
+  initialized = true;
+  begin.classList.add('initialized');
   crazyBall();
 });
 

@@ -18,8 +18,8 @@
     }
 }
 
-/* Mobile */
-@media (max-width: 600px) {
+/* Mobile 600px */
+@media (max-width: 37.5em) {
     .ball {
         height: 1.3rem;
         width: 1.3rem;
@@ -85,5 +85,13 @@
 
     .marked {
         box-shadow: 0 0 2rem var(--color-tertiary);
+    }
+
+    .footer {
+        text-align: center;
+    }
+
+    .footer a{
+        margin-left: 0;
     }
 }
