@@ -12,6 +12,10 @@ const losingPage = document.querySelector('.losing-page');
 const losingPageBox = document.querySelector('.losing-page__box');
 const lvlText = document.querySelector('.logo-box__level--level');
 const highscoreText = document.querySelector('.logo-Box__level--highscore');
+const resetHighscore = document.querySelector('.reset-highscore');
+const resetPage = document.querySelector('.reset-page');
+const resetPageBox = document.querySelector('.reset-page__box')
+const resultsBox = document.querySelector('.results__box');
 
 let lvl = 1;
 let highscore = 0;
@@ -77,6 +81,7 @@ const crazyBall = function () {
         renderLevel();
         renderHighscore();
         renderNextLevelMessage();
+        localStorage.setItem("userHighscore", highscore);
         setTimeout(() => {
           winningPage.classList.add('hidden');
           winningPageBox.style.transform = 'scale(.25)';
@@ -108,10 +113,12 @@ const renderLevel = function () {
 };
 
 const renderHighscore = function () {
+  if(!highscore) highscore = 0;
+  console.log(highscore);
   if (lvl > highscore && lvl > 1) {
     highscore = lvl - 1;
-    highscoreText.textContent = `Highscore: ${highscore}`;
   }
+  highscoreText.textContent = `Highscore: ${highscore}`;
 };
 
 const renderNextLevelMessage = function () {
@@ -128,6 +135,25 @@ begin.addEventListener('click', function () {
   initialized = true;
   begin.classList.add('initialized');
   crazyBall();
+});
+
+const initHighscore = function() {
+  highscore = localStorage.getItem("userHighscore");
+  renderHighscore();
+}
+initHighscore();
+
+resetHighscore.addEventListener('click', function(e) {
+  e.preventDefault();
+  localStorage.clear();
+  highscore = 0;
+  renderHighscore();
+  resetPage.classList.remove('hidden');
+  resetPageBox.style.transform = 'scale(1)';
+  setTimeout(() => {
+    resetPage.classList.add('hidden');
+    resetPageBox.style.transform = 'scale(.25)'
+  }, 3000);
 });
 
 const date = new Date()

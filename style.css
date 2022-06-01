@@ -134,7 +134,7 @@ body {
 }
 
 
-.winning-page__box {
+.winning-page__box, .reset-page__box {
     border: .5rem solid var(--color-primary);
 }
 
@@ -230,3 +230,16 @@ body {
     color: #ddd
 }
 
+/* Reset highscore */
+
+.reset-highscore {
+    font-family: "Audiowide", sans-serif;
+    margin-left: 2rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 250ms;
+}
+
+.reset-highscore:hover {
+    color: #ddd;
+}
