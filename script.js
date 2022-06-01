@@ -147,6 +147,8 @@ resetHighscore.addEventListener('click', function(e) {
   e.preventDefault();
   localStorage.clear();
   highscore = 0;
+  lvl = 1;
+  renderLevel();
   renderHighscore();
   resetPage.classList.remove('hidden');
   resetPageBox.style.transform = 'scale(1)';
