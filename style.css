@@ -12,6 +12,11 @@
     --color-tertiary: #ffd700;
 }
 
+::selection {
+    background-color: transparent;
+    color: var(--color-secondary);
+}
+
 body {
     background-color: var(--color-primary);
     font-family: 'Audiowide', sans-serif;
