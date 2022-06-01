@@ -214,15 +214,18 @@ body {
     font-family: sans-serif;
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 1rem;
+    gap: 2rem;
 }
 
 .footer a:link,
 .footer a:visited {
-    margin-left: 2rem;
+    /* margin-left: 2rem; */
     text-decoration: none;
     color: inherit;
     transition: color 250ms;
+    display: inline-block;
 }
 
 .footer a:hover,
@@ -234,10 +237,11 @@ body {
 
 .reset-highscore {
     font-family: "Audiowide", sans-serif;
-    margin-left: 2rem;
+    /* margin-left: 2rem; */
     font-size: 1.2rem;
     cursor: pointer;
     transition: color 250ms;
+    display: inline-block;
 }
 
 .reset-highscore:hover {

@@ -95,6 +95,7 @@
     .results__box {
         padding: 1.5rem 2rem;
         border-radius: 1.5rem;
+        text-align: center;
     }
 
     .results__message {
@@ -106,7 +107,8 @@
     }
 
     .footer {
-        text-align: center;
+        flex-direction: column;
+        gap: .5rem;
     }
 
     .footer a{
