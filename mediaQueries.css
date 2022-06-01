@@ -109,10 +109,11 @@
     .footer {
         flex-direction: column;
         gap: .5rem;
+        font-size: .8rem;
     }
 
-    .footer a{
-        margin-left: 0;
+    .reset-highscore {
+        font-size: 1rem;
     }
 }
 
