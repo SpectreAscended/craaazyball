@@ -61,6 +61,11 @@ body {
     border-radius: 50%;
     transition: all 500ms ease-in-out;
     cursor: pointer;
+
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .ball--1 {
@@ -168,6 +173,11 @@ body {
     transform: scale(.25);
     transition: transform 400ms;
     cursor: pointer;
+
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .results__message {
