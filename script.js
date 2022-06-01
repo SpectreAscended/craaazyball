@@ -17,26 +17,31 @@ const resetPage = document.querySelector('.reset-page');
 const resetPageBox = document.querySelector('.reset-page__box')
 const resultsBox = document.querySelector('.results__box');
 
+// Initial settings
 let lvl = 1;
 let highscore = 0;
-let difficulty = 500;
 let initialDifficulty = 500;
 let initialCounter = 10;
 let initialized = false;
 
-
+// Generates a random number. Used for our "Craaazy" bouncing balls, as well as our random colors.
 const ranNum = function (n) {
   return Math.trunc(Math.random() * n);
 };
 
 const crazyBall = function () {
-  difficulty  =+ lvl * 15;
+  // Calculates current difficulty setting
+  let difficulty = lvl * 15;
   let curDifficulty = initialDifficulty - difficulty;
+
+  // Determines your viewport size to determine what numbers to give our random number generator to make our balls bounce around.
   const clientHeight = Math.trunc(window.visualViewport.height) - 810;
   const clientWidth = Math.trunc(window.visualViewport.width) - 360;
   console.log(`Height: ${clientHeight}, Width: ${clientWidth}`);
   let clicked = false;
   let counter = initialCounter;
+
+  // Adds more iterations of the balls bouncing, beginning at level 11.
   if(lvl > 10) {
     counter = lvl;
   };
@@ -47,9 +52,12 @@ const crazyBall = function () {
     counter = lvl + 10;
   };
 
+
+  // Removes the highlighting on the target ball at the beginning.
   targetBall.classList.remove('spin');
   targetBall.classList.remove('marked');
   
+  // This is the function that makes the balls bounce.  Each level, curDifficulty is actually decreased, which gives our setInterval method fewer milliseconds between iterations.  We count down from our initial iteration count, and when that reaches 0 you choose which ball you think is the target ball.
   const gameLevel = setInterval(() => {
     counter--;
     balls.forEach(ball => {
@@ -62,8 +70,8 @@ const crazyBall = function () {
     }
   }, curDifficulty);
   
+  // This function adds eventlisteners to each ball to determine if we win or lose.  Here we render winning or losing messages and edit the scores.
   balls.forEach(ball => {
-
     ball.style.transition = `all ${curDifficulty}ms ease-in-out`;
 
     ball.addEventListener('click', function (e) {
@@ -108,10 +116,13 @@ const crazyBall = function () {
   });
 };
 
+
+// Renders the level text on the screen.
 const renderLevel = function () {
   lvlText.textContent = `Level: ${lvl}`;
 };
 
+// Renders the highscore text on the screen.
 const renderHighscore = function () {
   if(!highscore) highscore = 0;
   console.log(highscore);
@@ -121,15 +132,18 @@ const renderHighscore = function () {
   highscoreText.textContent = `Highscore: ${highscore}`;
 };
 
+// Renders the next level message.
 const renderNextLevelMessage = function () {
   winningPageMsg.textContent = `Level ${lvl}`;
 };
 
+// Adds a halo around the ball between levels so you can keep track of which ball you should be focusing on.
 const addHalo = function() {
   targetBall.classList.add('marked');
   targetBall.style.backgroundColor = '#ffd700';
 };
 
+// The button that initiates the current game level.
 begin.addEventListener('click', function () {
   if(initialized) return;
   initialized = true;
@@ -137,12 +151,14 @@ begin.addEventListener('click', function () {
   crazyBall();
 });
 
+// Retrieves our highscore from localstorage.
 const initHighscore = function() {
   highscore = localStorage.getItem("userHighscore");
   renderHighscore();
 }
 initHighscore();
 
+// Resets the highscore, as well as your current level.
 resetHighscore.addEventListener('click', function(e) {
   e.preventDefault();
   localStorage.clear();
