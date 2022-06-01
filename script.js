@@ -14,7 +14,7 @@ const lvlText = document.querySelector('.logo-box__level--level');
 const highscoreText = document.querySelector('.logo-Box__level--highscore');
 const resetHighscore = document.querySelector('.reset-highscore');
 const resetPage = document.querySelector('.reset-page');
-const resetPageBox = document.querySelector('.reset-page__box')
+const resetPageBox = document.querySelector('.reset-page__box');
 const resultsBox = document.querySelector('.results__box');
 
 // Initial settings
@@ -42,26 +42,27 @@ const crazyBall = function () {
   let counter = initialCounter;
 
   // Adds more iterations of the balls bouncing, beginning at level 11.
-  if(lvl > 10) {
+  if (lvl > 10) {
     counter = lvl;
-  };
-  if(lvl > 20) {
+  }
+  if (lvl > 20) {
     counter = lvl + 5;
-  };
-  if(lvl > 30) {
+  }
+  if (lvl > 30) {
     counter = lvl + 10;
-  };
-
+  }
 
   // Removes the highlighting on the target ball at the beginning.
   targetBall.classList.remove('spin');
   targetBall.classList.remove('marked');
-  
+
   // This is the function that makes the balls bounce.  Each level, curDifficulty is actually decreased, which gives our setInterval method fewer milliseconds between iterations.  We count down from our initial iteration count, and when that reaches 0 you choose which ball you think is the target ball.
   const gameLevel = setInterval(() => {
     counter--;
     balls.forEach(ball => {
-      ball.style.transform = `translate(${ranNum(clientWidth > 235 ? clientWidth: 260)}px, ${ranNum(clientHeight > 50 ? clientHeight + 250 : 250)}px)`;
+      ball.style.transform = `translate(${ranNum(
+        clientWidth > 235 ? clientWidth : 260
+      )}px, ${ranNum(clientHeight > 50 ? clientHeight + 250 : 250)}px)`;
       ball.style.backgroundColor = `rgba(240, ${ranNum(255)}, ${ranNum(255)})`;
     });
 
@@ -69,7 +70,7 @@ const crazyBall = function () {
       clearInterval(gameLevel);
     }
   }, curDifficulty);
-  
+
   // This function adds eventlisteners to each ball to determine if we win or lose.  Here we render winning or losing messages and edit the scores.
   balls.forEach(ball => {
     ball.style.transition = `all ${curDifficulty}ms ease-in-out`;
@@ -89,7 +90,7 @@ const crazyBall = function () {
         renderLevel();
         renderHighscore();
         renderNextLevelMessage();
-        localStorage.setItem("userHighscore", highscore);
+        localStorage.setItem('userHighscore', highscore);
         setTimeout(() => {
           winningPage.classList.add('hidden');
           winningPageBox.style.transform = 'scale(.25)';
@@ -102,9 +103,9 @@ const crazyBall = function () {
         targetBall.classList.add('marked');
         counter = initialCounter;
         lvl = 1;
-        losingPage.addEventListener('click', function() {
+        losingPage.addEventListener('click', function () {
           losingPage.classList.add('hidden');
-        })
+        });
         addHalo();
         renderLevel();
         setTimeout(() => {
@@ -116,63 +117,61 @@ const crazyBall = function () {
   });
 };
 
-
 // Renders the level text on the screen.
 const renderLevel = function () {
   lvlText.textContent = `Level: ${lvl}`;
 };
 
-// Renders the highscore text on the screen.
+// Renders the highscore text on to the screen.
 const renderHighscore = function () {
-  if(!highscore) highscore = 0;
-  console.log(highscore);
+  if (!highscore) highscore = 0;
   if (lvl > highscore && lvl > 1) {
     highscore = lvl - 1;
   }
   highscoreText.textContent = `Highscore: ${highscore}`;
 };
 
-// Renders the next level message.
+// Renders the next level message on to the screen.
 const renderNextLevelMessage = function () {
   winningPageMsg.textContent = `Level ${lvl}`;
 };
 
-// Adds a halo around the ball between levels so you can keep track of which ball you should be focusing on.
-const addHalo = function() {
+// Adds a halo around the target ball between levels so you can keep track of which ball you should be focusing on.
+const addHalo = function () {
   targetBall.classList.add('marked');
   targetBall.style.backgroundColor = '#ffd700';
 };
 
 // The button that initiates the current game level.
 begin.addEventListener('click', function () {
-  if(initialized) return;
+  if (initialized) return;
   initialized = true;
   begin.classList.add('initialized');
   crazyBall();
 });
 
 // Retrieves our highscore from localstorage.
-const initHighscore = function() {
-  highscore = localStorage.getItem("userHighscore");
+const initHighscore = function () {
+  highscore = localStorage.getItem('userHighscore');
   renderHighscore();
-}
+};
 initHighscore();
 
 // Resets the highscore, as well as your current level.
-resetHighscore.addEventListener('click', function(e) {
+resetHighscore.addEventListener('click', function (e) {
   e.preventDefault();
   localStorage.clear();
-  highscore = 0;
   lvl = 1;
+  highscore = 0;
   renderLevel();
   renderHighscore();
   resetPage.classList.remove('hidden');
   resetPageBox.style.transform = 'scale(1)';
   setTimeout(() => {
     resetPage.classList.add('hidden');
-    resetPageBox.style.transform = 'scale(.25)'
+    resetPageBox.style.transform = 'scale(.25)';
   }, 3000);
 });
 
-const date = new Date()
+const date = new Date();
 document.querySelector('.year').textContent = date.getFullYear();
