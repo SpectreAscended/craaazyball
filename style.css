@@ -10,6 +10,8 @@
     --color-primary: #BA6F2A;
     --color-secondary: #333;
     --color-tertiary: #ffd700;
+    --color-white: #f1e2d4;
+    --color-white-darker: #e3c5aa;
 }
 
 ::selection {
@@ -20,7 +22,7 @@
 body {
     background-color: var(--color-primary);
     font-family: 'Audiowide', sans-serif;
-    color: #efefef;
+    color: var(--color-white);
 }
 
 .border {
@@ -57,7 +59,6 @@ body {
     height: 2.5rem;
     width: 2.5rem;
     border-radius: 50%;
-    background-color: #fff;
     transition: all 500ms ease-in-out;
     cursor: pointer;
 }
@@ -140,7 +141,7 @@ body {
 
 
 .losing-page__box {
-    border: .5rem solid darkred;
+    border: .5rem solid #8b0000;
 }
 
 .results {
@@ -230,7 +231,7 @@ body {
 
 .footer a:hover,
 .footer a:active {
-    color: #ddd
+    color: var(--color-white-darker);
 }
 
 /* Reset highscore */
@@ -245,5 +246,5 @@ body {
 }
 
 .reset-highscore:hover {
-    color: #ddd;
+    color: var(--color-white-darker);
 }
