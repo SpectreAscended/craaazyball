@@ -81,36 +81,41 @@ const crazyBall = function () {
       initialized = false;
       begin.classList.remove('initialized');
       if (e.target.closest('.target')) {
-        winningPage.classList.remove('hidden');
-        winningPageBox.style.transform = 'scale(1)';
         counter = initialCounter;
         lvl++;
-
+        
         addHalo();
         renderLevel();
         renderHighscore();
         renderNextLevelMessage();
+        showPopup(winningPage, winningPageBox);
+
         localStorage.setItem('userHighscore', highscore);
+
+        winningPageBox.addEventListener('click', function() {
+          hidePopup(winningPage, winningPageBox);
+        });
+
         setTimeout(() => {
-          winningPage.classList.add('hidden');
-          winningPageBox.style.transform = 'scale(.25)';
+          hidePopup(winningPage, winningPageBox);
         }, 2000);
       }
 
       if (e.target.closest('.lose')) {
-        losingPage.classList.remove('hidden');
-        losingPageBox.style.transform = 'scale(1)';
         targetBall.classList.add('marked');
         counter = initialCounter;
         lvl = 1;
-        losingPage.addEventListener('click', function () {
-          losingPage.classList.add('hidden');
-        });
+
         addHalo();
         renderLevel();
+        showPopup(losingPage, losingPageBox);
+
+        losingPageBox.addEventListener('click', function () {
+          hidePopup(losingPage, losingPageBox);
+        });
+
         setTimeout(() => {
-          losingPage.classList.add('hidden');
-          losingPageBox.style.transform = 'scale(.25)';
+          hidePopup(losingPage, losingPageBox);
         }, 3000);
       }
     });
@@ -159,19 +164,37 @@ initHighscore();
 
 // Resets the highscore, as well as your current level.
 resetHighscore.addEventListener('click', function (e) {
+  if(!highscore) return;
   e.preventDefault();
+
   localStorage.clear();
   lvl = 1;
   highscore = 0;
+
   renderLevel();
   renderHighscore();
-  resetPage.classList.remove('hidden');
-  resetPageBox.style.transform = 'scale(1)';
+  showPopup(resetPage, resetPageBox);
+
+  resetPageBox.addEventListener('click', function() {
+    hidePopup(resetPage, resetPageBox);
+  });
+
   setTimeout(() => {
-    resetPage.classList.add('hidden');
-    resetPageBox.style.transform = 'scale(.25)';
+    hidePopup(resetPage, resetPageBox);
   }, 3000);
 });
+
+// Displays popup
+const showPopup = function(page, pageBox) {
+  page.classList.remove('hidden');
+  pageBox.style.transform = 'scale(1)';
+};
+
+// Hides popup
+const hidePopup = function(page, pageBox) {
+  page.classList.add('hidden');
+  pageBox.style.transform = 'scale(.25)';
+};
 
 const date = new Date();
 document.querySelector('.year').textContent = date.getFullYear();

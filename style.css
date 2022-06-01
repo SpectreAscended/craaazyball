@@ -167,6 +167,7 @@ body {
     border-radius: 3rem;
     transform: scale(.25);
     transition: transform 400ms;
+    cursor: pointer;
 }
 
 .results__message {
