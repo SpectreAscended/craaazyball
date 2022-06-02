@@ -1,84 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CRAAAZY BALL</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-    <link rel="manifest" href="./site.webmanifest">
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./favicon-16x16.png"
+    />
+    <link rel="manifest" href="./site.webmanifest" />
     <meta name="msapplication-config" content="/browserconfig.xml" />
-    <meta name="msapplication-TileColor" content="#BA6F2A">
-    <meta name="theme-color" content="#BA6F2A">
+    <meta name="msapplication-TileColor" content="#BA6F2A" />
+    <meta name="theme-color" content="#BA6F2A" />
     <!-- <meta name="theme-color" content="#333"> -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="mediaQueries.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaQueries.css" />
     <script defer src="script.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <main class="main">
-        <div class="border">
-            <div class="logo-box">
-                <div class="logo-box__img">
-                    <img src="assets/Logo.svg" alt="Crazyball logo" class="logo">
-                </div>
-                <div class="logo-box__title">
-                    <h1 class="title">Craaazy Ball</h1>
-                </div>
-                <div class="logo-box__level">
-                    <p class="logo-box__level--level">Level: 1</p>
-                    <p class="logo-Box__level--highscore">Highscore: 0</p>
-                </div>
-            </div>
-            <div class="start-game">
-                <span class="start-game__button">Start</span>
-            </div>
-            <div class="game-box">
-                <div class="game-box__group--1">
-                    <div class="ball ball--1 lose"></div>
-                    <div class="ball ball--2 lose"></div>
-                    <div class="ball ball--3 target spin marked"></div>
-                    <div class="ball ball--4 lose"></div>
-                    <div class="ball ball--1 lose"></div>
-                    <div class="ball ball--2 lose"></div>
-                    <div class="ball ball--3 lose"></div>
-                    <div class="ball ball--4 lose"></div>
-                </div>
-            </div>
-            
+      <div class="border">
+        <div class="logo-box">
+          <div class="logo-box__img">
+            <img src="assets/Logo.svg" alt="Crazyball logo" class="logo" />
+          </div>
+          <div class="logo-box__title">
+            <h1 class="title">Craaazy Ball</h1>
+          </div>
+          <div class="logo-box__level">
+            <p class="logo-box__level--level">Level: 1</p>
+            <p class="logo-Box__level--highscore">Highscore: 0</p>
+          </div>
         </div>
+        <div class="start-game">
+          <span class="start-game__button">Start</span>
+        </div>
+        <div class="game-box">
+          <div class="game-box__group--1">
+            <div class="ball ball--1 lose"></div>
+            <div class="ball ball--2 lose"></div>
+            <div class="ball ball--3 target spin marked"></div>
+            <div class="ball ball--4 lose"></div>
+            <div class="ball ball--1 lose"></div>
+            <div class="ball ball--2 lose"></div>
+            <div class="ball ball--3 lose"></div>
+            <div class="ball ball--4 lose"></div>
+          </div>
+        </div>
+      </div>
 
-        <!-- <div class="winning-page results hidden">
+      <!-- <div class="winning-page results hidden">
             <h2 class="winning-page__message results__message">Level 2</h2>
         </div>
         <div class="losing-page results  hidden">
             <h2 class="losing-page__message results__message">You lose</h2>
         </div>         -->
-        <div class="winning-page results hidden">
-            <div class="winning-page__box results__box">
-                 <h2 class="winning-page__message results__message"></h2>
-            </div>
+      <div class="winning-page results hidden">
+        <div class="winning-page__box results__box">
+          <h2 class="winning-page__message results__message"></h2>
         </div>
-        <div class="losing-page results hidden">
-            <div class="losing-page__box results__box">
-                <h2 class="losing-page__message results__message">You lose</h2>
-            </div>
-        </div> 
-        <div class="reset-page results hidden">
-            <div class="reset-page__box results__box">
-                <h2 class="results__message">Highscore reset</h2>
-            </div>
+      </div>
+      <div class="losing-page results hidden">
+        <div class="losing-page__box results__box">
+          <h2 class="losing-page__message results__message">You lose</h2>
         </div>
+      </div>
+      <div class="reset-page results hidden">
+        <div class="reset-page__box results__box">
+          <h2 class="results__message">Highscore reset</h2>
+        </div>
+      </div>
     </main>
     <footer class="footer">
-        <p class="footer__text">Created by Cory Pollard &copy; <span class="year"></span></p><a href="mailto:astandard87@gmail.com">AStandard87@gmail.com</a>
-        <span class="reset-highscore">Reset highscore</span>
-    </footer>  
-</body>
+      <p class="footer__text">
+        Created by Cory Pollard &copy; <span class="year"></span>
+      </p>
+      <a href="mailto:astandard87@gmail.com">AStandard87@gmail.com</a>
+      <span class="reset-highscore">Reset highscore</span>
+    </footer>
+  </body>
 </html>

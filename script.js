@@ -77,27 +77,20 @@ const crazyBall = function () {
       if (counter > 0 || clicked) return;
       clicked = true;
       initialized = false;
-      
+
       begin.classList.remove('initialized');
       if (e.target.closest('.target')) {
         counter = initialCounter;
         lvl++;
-        
+
         addHalo();
         renderLevel();
         renderHighscore();
         renderNextLevelMessage();
-        showPopup(winningPage, winningPageBox);
-
         localStorage.setItem('userHighscore', highscore);
 
-        winningPageBox.addEventListener('click', function() {
-          hidePopup(winningPage, winningPageBox);
-        });
-
-        setTimeout(() => {
-          hidePopup(winningPage, winningPageBox);
-        }, 2000);
+        showPopup(winningPage, winningPageBox);
+        hidePopup(winningPage, winningPageBox, 2000);
       }
 
       if (e.target.closest('.lose')) {
@@ -107,15 +100,9 @@ const crazyBall = function () {
 
         addHalo();
         renderLevel();
+
         showPopup(losingPage, losingPageBox);
-
-        losingPageBox.addEventListener('click', function () {
-          hidePopup(losingPage, losingPageBox);
-        });
-
-        setTimeout(() => {
-          hidePopup(losingPage, losingPageBox);
-        }, 3000);
+        hidePopup(losingPage, losingPageBox);
       }
     });
   });
@@ -157,15 +144,14 @@ begin.addEventListener('click', function () {
 });
 
 // Retrieves our highscore from localstorage.
-const initHighscore = function () {
+const initHighscore = (function () {
   highscore = localStorage.getItem('userHighscore');
   renderHighscore();
-};
-initHighscore();
+})();
 
 // Resets the highscore, as well as your current level.
 resetHighscore.addEventListener('click', function () {
-  if(!highscore) return;
+  if (!highscore) return;
 
   localStorage.clear();
   lvl = 1;
@@ -174,26 +160,29 @@ resetHighscore.addEventListener('click', function () {
   renderLevel();
   renderHighscore();
   showPopup(resetPage, resetPageBox);
-
-  resetPageBox.addEventListener('click', function() {
-    hidePopup(resetPage, resetPageBox);
-  });
-
-  setTimeout(() => {
-    hidePopup(resetPage, resetPageBox);
-  }, 3000);
+  hidePopup(resetPage, resetPageBox);
 });
 
 // Displays popup
-const showPopup = function(page, pageBox) {
+const showPopup = function (page, pageBox) {
   page.classList.remove('hidden');
   pageBox.style.transform = 'scale(1)';
 };
 
-// Hides popup
-const hidePopup = function(page, pageBox) {
-  page.classList.add('hidden');
-  pageBox.style.transform = 'scale(.25)';
+// Combines both ways of closing the popup into one function
+const hidePopup = function (page, pageBox, timer = 3000) {
+  const closeModal = function (page, pageBox) {
+    page.classList.add('hidden');
+    pageBox.style.transform = 'scale(.25)';
+  };
+
+  pageBox.addEventListener('click', function () {
+    closeModal(page, pageBox);
+  });
+
+  setTimeout(() => {
+    closeModal(page, pageBox);
+  }, timer);
 };
 
 const date = new Date();

@@ -1,261 +1,258 @@
 *,
 *::before,
 *::after {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 :root {
-    --color-primary: #BA6F2A;
-    --color-secondary: #333;
-    --color-tertiary: #ffd700;
-    --color-white: #f1e2d4;
-    --color-white-darker: #e3c5aa;
+  --color-primary: #ba6f2a;
+  --color-secondary: #333;
+  --color-tertiary: #ffd700;
+  --color-white: #f1e2d4;
+  --color-white-darker: #e3c5aa;
 }
 
 ::selection {
-    background-color: transparent;
-    color: var(--color-secondary);
+  background-color: transparent;
+  color: var(--color-secondary);
 }
 
 body {
-    background-color: var(--color-primary);
-    font-family: 'Audiowide', sans-serif;
-    color: var(--color-white);
+  background-color: var(--color-primary);
+  font-family: 'Audiowide', sans-serif;
+  color: var(--color-white);
 }
 
 .border {
-    position: relative;
-    padding: 3rem 4rem;
-    height: 110vh;
-    width: 100%;
-    /* background-color: #BA6F2A; */
-    background-color: var(--color-primary);
-    z-index: 2;
+  position: relative;
+  padding: 3rem 4rem;
+  height: 110vh;
+  width: 100%;
+  /* background-color: #BA6F2A; */
+  background-color: var(--color-primary);
+  z-index: 2;
 }
 
 .game-box {
-    background-color: var(--color-secondary);
-    height: 85vh;
-    width: 95%;
-    margin: 0 auto;
-    border-radius: 2rem;
-    padding: 1rem;
-    overflow: hidden;
+  background-color: var(--color-secondary);
+  height: 85vh;
+  width: 95%;
+  margin: 0 auto;
+  border-radius: 2rem;
+  padding: 1rem;
+  overflow: hidden;
 }
 
 .game-box__group--1 {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    margin-top: 5rem;
-    margin-left: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 5rem;
+  margin-left: 3rem;
 }
 
 /*  Game */
 
 .ball {
-    height: 2.5rem;
-    width: 2.5rem;
-    border-radius: 50%;
-    transition: all 500ms ease-in-out;
-    cursor: pointer;
-    box-shadow: 0 0 .4rem rgba(0, 0, 0, .3);
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  transition: all 500ms ease-in-out;
+  cursor: pointer;
+  box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.3);
 
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .ball--1 {
-    background-color: #3C3AA9;
+  background-color: #3c3aa9;
 }
 .ball--2 {
-    background-color: #8F15A3;
+  background-color: #8f15a3;
 }
 .ball--3 {
-    background-color: #EDCB54;
+  background-color: #edcb54;
 }
 .ball--4 {
-    background-color: #E90101;
+  background-color: #e90101;
 }
 
 .target {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .marked {
-    box-shadow: 0rem 0 3rem var(--color-tertiary);
+  box-shadow: 0rem 0 3rem var(--color-tertiary);
 }
-
 
 .spin {
-    border: 2px dashed var(--color-tertiary);
-    transition: all 200ms;
-    animation: rotate 3000ms infinite linear;
+  border: 2px dashed var(--color-tertiary);
+  transition: all 200ms;
+  animation: rotate 3000ms infinite linear;
 }
 
-@keyframes rotate{
-    0% {
-        transform: rotate(0deg)
-    }
-    100% {
-        transform: rotate(360deg)
-    }
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .start-game {
-    display: flex;
-    margin-top: 0;
-    margin-bottom: 1.5rem;
-    color: #333;
-    justify-content: center;
+  display: flex;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #333;
+  justify-content: center;
 }
 
 .start-game__button {
-    background-color: var(--color-tertiary);
-    padding: .5rem 1rem;
-    border-radius: 5px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background 250ms;
+  background-color: var(--color-tertiary);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 250ms;
 }
 
 .start-game__button:hover {
-    background-color: #e0c005;
+  background-color: #e0c005;
 }
 
 .initialized {
-    opacity: .6;
-    background-color: #e0c005;
-    cursor: default;
+  opacity: 0.6;
+  background-color: #e0c005;
+  cursor: default;
 }
 
 /* Win/Lose message */
 .main {
-    position: relative;
+  position: relative;
 }
 
-
-.winning-page__box, .reset-page__box {
-    border: .5rem solid var(--color-primary);
+.winning-page__box,
+.reset-page__box {
+  border: 0.5rem solid var(--color-primary);
 }
-
 
 .losing-page__box {
-    border: .5rem solid #8b0000;
+  border: 0.5rem solid #8b0000;
 }
 
 .results {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 250ms;
-    z-index: 1000;
-    background-color: rgba(0, 0, 0, .6);
-    -webkit-backdrop-filter: blur(4px);
-    backdrop-filter: blur(4px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 250ms;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
 }
 
-.results__box{
-    background-color: #333;
-    padding: 8rem 16rem;
-    display: block;
-    border-radius: 3rem;
-    transform: scale(.25);
-    transition: transform 400ms;
-    cursor: pointer;
+.results__box {
+  background-color: #333;
+  padding: 8rem 16rem;
+  display: block;
+  border-radius: 3rem;
+  transform: scale(0.25);
+  transition: transform 400ms;
+  cursor: pointer;
 
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .results__message {
-    font-size: 5rem;
-    text-transform: uppercase;
-
+  font-size: 5rem;
+  text-transform: uppercase;
 }
 
 .hidden {
-    opacity: 0;
-    visibility: hidden;
+  opacity: 0;
+  visibility: hidden;
 }
 
 /* Logo */
 .logo-box {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .logo-box__img {
-    width: 10%;
-    margin-left: 3rem;
+  width: 10%;
+  margin-left: 3rem;
 }
 
 .logo {
-    width: 100%;
+  width: 100%;
 }
 
 .logo-box__title {
-    font-size: 2rem;
-    text-transform: uppercase;
-    margin-left: 2rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+  margin-left: 2rem;
 }
 
 .logo-box__level {
-    justify-self: flex-end;
-    margin-left: auto;
-    margin-right: 5rem;
-    font-size: 1.6rem;
-    text-transform: uppercase;
+  justify-self: flex-end;
+  margin-left: auto;
+  margin-right: 5rem;
+  font-size: 1.6rem;
+  text-transform: uppercase;
 }
 
 /* Footer */
 
 .footer {
-    font-family: sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    gap: 2rem;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  gap: 2rem;
 }
 
 .footer a:link,
 .footer a:visited {
-    /* margin-left: 2rem; */
-    text-decoration: none;
-    color: inherit;
-    transition: color 250ms;
-    display: inline-block;
+  /* margin-left: 2rem; */
+  text-decoration: none;
+  color: inherit;
+  transition: color 250ms;
+  display: inline-block;
 }
 
 .footer a:hover,
 .footer a:active {
-    color: var(--color-white-darker);
+  color: var(--color-white-darker);
 }
 
 /* Reset highscore */
 
 .reset-highscore {
-    font-family: "Audiowide", sans-serif;
-    /* margin-left: 2rem; */
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: color 250ms;
-    display: inline-block;
+  font-family: 'Audiowide', sans-serif;
+  /* margin-left: 2rem; */
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 250ms;
+  display: inline-block;
 }
 
 .reset-highscore:hover {
-    color: var(--color-white-darker);
+  color: var(--color-white-darker);
 }
