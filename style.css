@@ -61,6 +61,7 @@ body {
     border-radius: 50%;
     transition: all 500ms ease-in-out;
     cursor: pointer;
+    box-shadow: 0 0 .4rem rgba(0, 0, 0, .3);
 
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
@@ -92,7 +93,7 @@ body {
 
 
 .spin {
-    border: 2px dashed #333;
+    border: 2px dashed var(--color-tertiary);
     transition: all 200ms;
     animation: rotate 3000ms infinite linear;
 }
@@ -127,11 +128,10 @@ body {
     background-color: #e0c005;
 }
 
-
 .initialized {
     opacity: .6;
     background-color: #e0c005;
-    cursor: no-drop;
+    cursor: default;
 }
 
 /* Win/Lose message */
