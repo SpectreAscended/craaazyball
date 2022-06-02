@@ -3,7 +3,6 @@
 const balls = document.querySelectorAll('.ball');
 const targetBall = document.querySelector('.target');
 const gameBox = document.querySelector('.game-box');
-const loser = document.querySelectorAll('.loser');
 const begin = document.querySelector('.start-game__button');
 const winningPage = document.querySelector('.winning-page');
 const winningPageMsg = document.querySelector('.winning-page__message');
@@ -15,7 +14,6 @@ const highscoreText = document.querySelector('.logo-Box__level--highscore');
 const resetHighscore = document.querySelector('.reset-highscore');
 const resetPage = document.querySelector('.reset-page');
 const resetPageBox = document.querySelector('.reset-page__box');
-const resultsBox = document.querySelector('.results__box');
 
 // Initial settings
 let lvl = 1;
@@ -79,6 +77,7 @@ const crazyBall = function () {
       if (clicked) return;
       clicked = true;
       initialized = false;
+      
       begin.classList.remove('initialized');
       if (e.target.closest('.target')) {
         counter = initialCounter;
@@ -130,6 +129,7 @@ const renderLevel = function () {
 // Renders the highscore text on to the screen.
 const renderHighscore = function () {
   if (!highscore) highscore = 0;
+
   if (lvl > highscore && lvl > 1) {
     highscore = lvl - 1;
   }
@@ -150,6 +150,7 @@ const addHalo = function () {
 // The button that initiates the current game level.
 begin.addEventListener('click', function () {
   if (initialized) return;
+
   initialized = true;
   begin.classList.add('initialized');
   crazyBall();
@@ -163,9 +164,8 @@ const initHighscore = function () {
 initHighscore();
 
 // Resets the highscore, as well as your current level.
-resetHighscore.addEventListener('click', function (e) {
+resetHighscore.addEventListener('click', function () {
   if(!highscore) return;
-  e.preventDefault();
 
   localStorage.clear();
   lvl = 1;
