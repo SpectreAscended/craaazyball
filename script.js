@@ -74,7 +74,7 @@ const crazyBall = function () {
     ball.style.transition = `all ${curDifficulty}ms ease-in-out`;
 
     ball.addEventListener('click', function (e) {
-      if (clicked) return;
+      if (counter > 0 || clicked) return;
       clicked = true;
       initialized = false;
       
