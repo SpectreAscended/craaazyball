@@ -25,6 +25,7 @@ body {
   color: var(--color-white);
 }
 
+/* Border around the game box */
 .border {
   position: relative;
   padding: 3rem 4rem;
@@ -35,6 +36,7 @@ body {
   z-index: 2;
 }
 
+/* Main game box area */
 .game-box {
   background-color: var(--color-secondary);
   height: 85vh;
@@ -43,6 +45,7 @@ body {
   border-radius: 2rem;
   padding: 1rem;
   overflow: hidden;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
 }
 
 .game-box__group--1 {
@@ -53,7 +56,7 @@ body {
   margin-left: 3rem;
 }
 
-/*  Game */
+/* Game balls */
 
 .ball {
   height: 2.5rem;
@@ -82,15 +85,18 @@ body {
   background-color: #e90101;
 }
 
+/* The target ball */
 .target {
   position: relative;
   z-index: 1;
 }
 
+/* Halo over ball to mark the "target" ball */
 .marked {
   box-shadow: 0rem 0 3rem var(--color-tertiary);
 }
 
+/* Additional styling for the target ball at the beginning of the game. */
 .spin {
   border: 2px dashed var(--color-tertiary);
   transition: all 200ms;
@@ -106,6 +112,7 @@ body {
   }
 }
 
+/* Button to begin the game */
 .start-game {
   display: flex;
   margin-top: 0;
@@ -121,16 +128,24 @@ body {
   text-transform: uppercase;
   cursor: pointer;
   transition: background 250ms;
+  box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.4);
 }
 
 .start-game__button:hover {
   background-color: #e0c005;
+  box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.3);
+}
+
+/* Added to start button while game is in motion */
+.initialized.start-game__button:hover {
+  box-shadow: none;
 }
 
 .initialized {
   opacity: 0.6;
   background-color: #e0c005;
   cursor: default;
+  box-shadow: none;
 }
 
 /* Win/Lose message */
@@ -138,15 +153,18 @@ body {
   position: relative;
 }
 
+/* General styling for modal */
 .winning-page__box,
 .reset-page__box {
   border: 0.5rem solid var(--color-primary);
 }
 
+/* Red losing styling for modal */
 .losing-page__box {
   border: 0.5rem solid #8b0000;
 }
 
+/* Modal overlay */
 .results {
   position: fixed;
   top: 0;
@@ -163,6 +181,7 @@ body {
   backdrop-filter: blur(4px);
 }
 
+/* Modal box */
 .results__box {
   background-color: #333;
   padding: 8rem 16rem;
@@ -178,6 +197,7 @@ body {
   user-select: none;
 }
 
+/* Modal text */
 .results__message {
   font-size: 5rem;
   text-transform: uppercase;
