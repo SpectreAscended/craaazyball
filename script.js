@@ -22,11 +22,6 @@ let initialDifficulty = 500;
 let initialCounter = 10;
 let initialized = false;
 
-// Generates a random number. Used for our "Craaazy" bouncing balls, as well as our random colors.
-const ranNum = function (n) {
-  return Math.trunc(Math.random() * n);
-};
-
 const crazyBall = function () {
   // Calculates current difficulty setting
   let difficulty = lvl * 15;
@@ -54,14 +49,21 @@ const crazyBall = function () {
   targetBall.classList.remove('spin');
   targetBall.classList.remove('marked');
 
+  // Generates a random number. Used for our "Craaazy" bouncing balls, as well as our random colors.
+  const randNum = function (n) {
+    return Math.trunc(Math.random() * n);
+  };
+
   // This is the function that makes the balls bounce.  Each level, curDifficulty is actually decreased, which gives our setInterval method fewer milliseconds between iterations.  We count down from our initial iteration count, and when that reaches 0 you choose which ball you think is the target ball.
   const gameLevel = setInterval(() => {
     counter--;
     balls.forEach(ball => {
-      ball.style.transform = `translate(${ranNum(
+      ball.style.transform = `translate(${randNum(
         clientWidth > 235 ? clientWidth : 260
-      )}px, ${ranNum(clientHeight > 50 ? clientHeight + 250 : 250)}px)`;
-      ball.style.backgroundColor = `rgba(240, ${ranNum(255)}, ${ranNum(255)})`;
+      )}px, ${randNum(clientHeight > 50 ? clientHeight + 250 : 250)}px)`;
+      ball.style.backgroundColor = `rgba(240, ${randNum(255)}, ${randNum(
+        255
+      )})`;
     });
 
     if (counter === 0) {
@@ -87,10 +89,8 @@ const crazyBall = function () {
         renderLevel();
         renderHighscore();
         renderNextLevelMessage();
+        handlePopup(winningPage, winningPageBox, 2000);
         localStorage.setItem('userHighscore', highscore);
-
-        showPopup(winningPage, winningPageBox);
-        hidePopup(winningPage, winningPageBox, 2000);
       }
 
       if (e.target.closest('.lose')) {
@@ -100,9 +100,7 @@ const crazyBall = function () {
 
         addHalo();
         renderLevel();
-
-        showPopup(losingPage, losingPageBox);
-        hidePopup(losingPage, losingPageBox);
+        handlePopup(losingPage, losingPageBox);
       }
     });
   });
@@ -159,18 +157,19 @@ resetHighscore.addEventListener('click', function () {
 
   renderLevel();
   renderHighscore();
-  showPopup(resetPage, resetPageBox);
-  hidePopup(resetPage, resetPageBox);
+  handlePopup(resetPage, resetPageBox);
 });
 
-// Displays popup
-const showPopup = function (page, pageBox) {
-  page.classList.remove('hidden');
-  pageBox.style.transform = 'scale(1)';
-};
+// Opens and closes the popup
+const handlePopup = function (page, pageBox, timer = 3000) {
+  // Displays popup
+  const showModal = function (page, pageBox) {
+    page.classList.remove('hidden');
+    pageBox.style.transform = 'scale(1)';
+  };
+  showModal(page, pageBox);
 
-// Combines both ways of closing the popup into one function
-const hidePopup = function (page, pageBox, timer = 3000) {
+  // Closes popup
   const closeModal = function (page, pageBox) {
     page.classList.add('hidden');
     pageBox.style.transform = 'scale(.25)';
