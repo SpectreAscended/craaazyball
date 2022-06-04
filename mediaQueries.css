@@ -1,146 +1,141 @@
-
-
 @media (max-width: 1400px) {
-    .title {
-        font-size: 2rem;
-    }
+  .title {
+    font-size: 2rem;
+  }
 
-    .ball {
-        height: 2rem;
-        width: 2rem;
-    }
+  .ball {
+    height: 2rem;
+    width: 2rem;
+  }
 }
 
 @media (max-width: 900px) {
-    .ball {
-        height: 1.8rem;
-        width: 1.8rem;
-    }
+  .ball {
+    height: 1.8rem;
+    width: 1.8rem;
+  }
 }
 
 /* Mobile 600px */
 @media (max-width: 37.5em) {
-    .ball {
-        height: 1.3rem;
-        width: 1.3rem;
-    }
+  .ball {
+    height: 1.3rem;
+    width: 1.3rem;
+  }
 
-    .spin {
-        border: 1px dashed #333;
-    }
+  .spin {
+    border: 1px dashed #333;
+  }
 
-    .border {
-        padding: 1rem .5rem;
-        width: 100%;
-        height: 100%
-    }
+  .border {
+    padding: 1rem 0.5rem;
+    width: 100%;
+    height: 100%;
+  }
 
-    .game-box {
-        height: 90vh;
-    }
+  .game-box {
+    height: 90vh;
+  }
 
-    .game-box__group--1 {
-        margin: .5rem;
-        gap: 2rem;
-    }
+  .game-box__group--1 {
+    margin: 0.5rem;
+    gap: 2rem;
+  }
 
-    .logo-box__title {
-        margin-left: .5rem
-    }
+  .logo-box__title {
+    margin-left: 0.5rem;
+  }
 
+  .title {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
 
-    .title {
-        font-size: 1rem;
-        margin-bottom: .5rem;
+  .logo-box {
+    justify-content: space-evenly;
+  }
 
-    }
+  .logo-box__img {
+    /* height: 1rem; */
+    margin-left: 1rem;
+  }
 
-    .logo-box {
-        justify-content: space-evenly;
-    }
+  .logo {
+    width: 100%;
+  }
 
-    .logo-box__img {
-        /* height: 1rem; */
-        margin-left: 1rem;
-    }
+  .logo-box__level {
+    font-size: 0.6rem;
+    margin-right: 0;
 
-    .logo {
-        width: 100%;
-    }
+    /* margin-left: .5rem; */
+  }
 
-    .logo-box__level {
-        font-size: .6rem;
-        margin-right: 0;
+  .start-game {
+    margin-bottom: 0.5rem;
+  }
 
-        /* margin-left: .5rem; */
-    }
+  .start-game__button {
+    font-size: 0.6rem;
+    padding: 0.25rem 0.5rem;
+  }
 
-    .start-game {
-        margin-bottom: .5rem
-    }
+  .winning-page__box {
+    border: 0.25rem solid var(--color-primary);
+  }
 
-    .start-game__button {
-        font-size: .6rem;
-        padding: .25rem .5rem
-    }
+  .losing-page__box {
+    border: 0.25rem solid darkred;
+  }
 
-    .winning-page__box {
-        border: .25rem solid var(--color-primary);
-    }
+  .results__box {
+    padding: 1.5rem 2rem;
+    border-radius: 1.5rem;
+    text-align: center;
+  }
 
-    .losing-page__box {
-        border: .25rem solid darkred;
-    }
+  .results__message {
+    font-size: 2rem;
+  }
 
-    .results__box {
-        padding: 1.5rem 2rem;
-        border-radius: 1.5rem;
-        text-align: center;
-    }
+  .marked {
+    box-shadow: 0 0 2rem var(--color-tertiary);
+  }
 
-    .results__message {
-        font-size: 2rem;
-    }
+  .footer {
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+  }
 
-    .marked {
-        box-shadow: 0 0 2rem var(--color-tertiary);
-    }
-
-    .footer {
-        flex-direction: column;
-        gap: .5rem;
-        font-size: .8rem;
-    }
-
-    .reset-highscore {
-        font-size: 1rem;
-    }
+  .reset-highscore {
+    font-size: 1rem;
+  }
 }
 
 /* Mobile landscape */
 
 @media (max-height: 37.5em) {
+  html {
+    font-size: 55%;
+  }
 
-    html {
-        font-size: 55%;
-    }
+  /* .ball {
+    height: 2.5rem;
+        width: 2.5rem; 
+  }  */
 
-    .ball {
-        height: 2.5rem;
-        width: 2.5rem;
-    }
+  .game-box {
+    padding: 0;
+  }
 
-    .game-box {
-        padding: 0;
-    }
+  .game-box__group--1 {
+    gap: 1.5rem;
+    margin-top: 2rem;
+    margin-left: 2rem;
+  }
 
-    .game-box__group--1 {
-        gap: 1.5rem;
-        margin-top: 2rem;
-        margin-left: 2rem;
-    }
-
-    .border {
-        padding: 1rem 1.5rem
-    }
+  .border {
+    padding: 1rem 1.5rem;
+  }
 }

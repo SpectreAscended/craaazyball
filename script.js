@@ -58,6 +58,17 @@ const crazyBall = function () {
   const gameLevel = setInterval(() => {
     counter--;
     balls.forEach(ball => {
+      const changeSize = function () {
+        let size = randNum(90) + 30;
+        if (clientWidth < 400) {
+          size = randNum(25) + 15;
+        }
+        ball.style.height = `${size}px`;
+        ball.style.width = `${size}px`;
+      };
+
+      changeSize();
+
       ball.style.transform = `translate(${randNum(
         clientWidth > 235 ? clientWidth : 260
       )}px, ${randNum(clientHeight > 50 ? clientHeight + 250 : 250)}px)`;
